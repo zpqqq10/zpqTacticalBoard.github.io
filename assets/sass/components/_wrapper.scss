@@ -1,120 +1,86 @@
 ///
-/// Story by HTML5 UP
+/// Fractal by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
-/* Wrapper (style1) */
+/* Wrapper */
 
-	.wrapper.style1 {
-		> .inner {
-			@include padding(_size(padding, default), _size(padding, default) * 0.5);
-			margin: 0 auto;
-			max-width: 100%;
-			width: _size(inner);
-
-			&.medium {
-				width: _size(inner) * 0.75;
-			}
-
-			&.small {
-				width: _size(inner) * 0.5;
-			}
-		}
-
-		@include breakpoint('<=xlarge') {
-			> .inner {
-				@include padding(_size(padding, xlarge), _size(padding, xlarge) * 0.5);
-			}
-		}
-
-		@include breakpoint('<=large') {
-			> .inner {
-				@include padding(_size(padding, large), _size(padding, large));
-			}
-		}
-
-		@include breakpoint('<=medium') {
-			> .inner {
-				@include padding(_size(padding, medium) * 1.5, _size(padding, medium));
-			}
-		}
-
-		@include breakpoint('<=small') {
-			> .inner {
-				@include padding(_size(padding, small) * 1.5, _size(padding, small));
-			}
-		}
-	}
-
-/* Wrapper (style2) */
-
-	.wrapper.style2 {
-		padding: _size(padding, default);
-		background-color: _palette(bg-alt);
+	.wrapper {
+		@include padding(4.5em, 0);
+		background-color: _palette(bg);
+		border-bottom: solid (_size(border-width) * 2) lighten(_palette(border), 3);
 
 		> .inner {
-			@include padding(_size(padding, default) * 0.75, _size(padding, default) * 0.5);
-			background-color: _palette(bg);
-			border-radius: _size(border-radius-alt);
-			margin: 0 auto;
-			max-width: 100%;
-			position: relative;
-			width: _size(inner);
-			z-index: 1;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50em;
 
-			&.medium {
-				width: _size(inner) * 0.75;
-			}
+			&.alt {
+				> * {
+					border-top: solid (_size(border-width) * 2) lighten(_palette(border), 3);
+					margin-bottom: 0;
+					margin-top: 3em;
+					padding-top: 3em;
 
-			&.small {
-				width: _size(inner) * 0.5;
-			}
-		}
-
-		@include breakpoint('<=xlarge') {
-			padding: _size(padding, xlarge);
-
-			> .inner {
-				@include padding(_size(padding, xlarge) * 0.75, _size(padding, xlarge) * 0.5);
-			}
-		}
-
-		@include breakpoint('<=large') {
-			padding: _size(padding, large);
-
-			> .inner {
-				@include padding(_size(padding, large) * 0.75, _size(padding, large) * 0.5);
-			}
-		}
-
-		@include breakpoint('<=medium') {
-			padding: _size(padding, medium) * 0.75;
-
-			> .inner {
-				@include padding(_size(padding, medium), _size(padding, medium) * 0.75);
-			}
-		}
-
-		@include breakpoint('<=small') {
-			padding: _size(padding, small) * 0.75;
-
-			> .inner {
-				@include padding(_size(padding, small), _size(padding, small) * 0.75);
-			}
-		}
-	}
-
-	#wrapper {
-		> .wrapper.style2 {
-			&.invert {
-				&:not(.color1):not(.color2):not(.color3):not(.color4):not(.color5):not(.color6):not(.color7) {
-					background-color: _palette(invert, bg-alt);
+					&:first-child {
+						border-top: 0;
+						margin-top: 0;
+						padding-top: 0;
+					}
 				}
+			}
+		}
+
+		&.style1 {
+			@include color(accent1);
+		}
+
+		&.style2 {
+			@include color(accent2);
+		}
+
+		&.style3 {
+			@include color(accent3);
+		}
+
+		// Medium.
+			@include breakpoint('<=medium') {
+				@include padding(4em, 4em);
 
 				> .inner {
-					background-color: _palette(invert, bg);
+					width: 100%;
 				}
 			}
-		}
+
+		// Small.
+			@include breakpoint('<=small') {
+
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(3em, 3em);
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(3em, 1.5em);
+					}
+
+			}
+
+		// XSmall.
+			@include breakpoint('<=xsmall') {
+
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(2em, 1.5em);
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(2em, 1em);
+					}
+
+			}
+
 	}
